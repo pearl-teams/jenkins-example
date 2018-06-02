@@ -5,11 +5,11 @@ pipeline {
             steps { 
                echo 'Hier wird dein Projekt gebaut!' 
             }
-            
+        }    
         stage('Dev: Test') { 
 		    steps { 
 		       echo 'Hier wird dein Projekt getestet!' 
        		}
-      	}
+       	}
     }
 }
