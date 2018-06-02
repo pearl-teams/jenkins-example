@@ -9,7 +9,7 @@ pipeline {
         stage('Dev: Test') { 
 		    steps { 
 		       echo 'Hier wird dein Projekt getestet!' 
-        }
-         
+       		}
+      	}
     }
 }
