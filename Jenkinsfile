@@ -7,7 +7,9 @@ pipeline {
     } 
     stages { 
 	    stage('Dev: Clone repository') {
-	        checkout scm
+	        steps{
+	        	checkout scm
+	        }
 	    }
         stage('Dev: Build & Test') { 
             steps { 
