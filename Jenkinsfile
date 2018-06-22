@@ -1,6 +1,7 @@
 @Library('jenkins-example-ci-library') _
 
 pipeline { 
+	agent any
     stages { 
 	    stage('Dev: Clone repository') {
 	        steps{
