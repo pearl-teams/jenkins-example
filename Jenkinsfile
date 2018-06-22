@@ -19,11 +19,13 @@ pipeline {
         }    
        	stage('Dev: Build Image and Push') { 
 		    steps { 
-		    	hello("world")
-		       	app = dockerBuild() 
-		       	withDockerRegistry([credentialsId: 'docker-hub-credentials', url: "https://registry.hub.docker.com"]) {
-            		app.push("latest")
+		    	script{
+		    	    hello("world")
+			       	app = dockerBuild() 
+			       	withDockerRegistry([credentialsId: 'docker-hub-credentials', url: "https://registry.hub.docker.com"]) {
+	            		app.push("latest")
         			}
+		    	}		    	
        		}
        	}
     }
