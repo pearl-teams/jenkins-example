@@ -1,3 +1,5 @@
+@Library('jenkins-example-ci-library') _
+
 pipeline { 
     agent {
         docker {
@@ -18,7 +20,7 @@ pipeline {
         }    
        	stage('Dev: Build Image') { 
 		    steps { 
-		       echo 'Hier wird dein Docker Image gebaut!' 
+		       dockerBuild() 
        		}
        	}
     }
