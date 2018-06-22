@@ -20,14 +20,14 @@ pipeline {
        	stage('Dev: Build Image') { 
 		    steps { 
 		    	hello("world")
-		       	env app = dockerBuild() 
+		       	env.app = dockerBuild() 
        		}
        	}
        	stage('Dev: Push Image') { 
 		    steps { 
-		    	script{
-		    	    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            		app.push("latest")
+		    	script{		    	  
+		    	    withDockerRegistry([credentialsId: 'docker-hub-credentials', url: "https://registry.hub.docker.com"]) {
+            		env.app.push("latest")
         			}
 		    	}
        		}
