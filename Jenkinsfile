@@ -17,19 +17,13 @@ pipeline {
                sh 'mvn -B -DskipTests clean package'  
             }
         }    
-       	stage('Dev: Build Image') { 
+       	stage('Dev: Build Image and Push') { 
 		    steps { 
 		    	hello("world")
-		       	env.app = dockerBuild() 
-       		}
-       	}
-       	stage('Dev: Push Image') { 
-		    steps { 
-		    	script{		    	  
-		    	    withDockerRegistry([credentialsId: 'docker-hub-credentials', url: "https://registry.hub.docker.com"]) {
-            		env.app.push("latest")
+		       	app = dockerBuild() 
+		       	withDockerRegistry([credentialsId: 'docker-hub-credentials', url: "https://registry.hub.docker.com"]) {
+            		app.push("latest")
         			}
-		    	}
        		}
        	}
     }
