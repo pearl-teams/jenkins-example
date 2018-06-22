@@ -48,6 +48,9 @@
 	<build>
 		<plugins>
 			<plugin>
+				<configuration>
+					<finalName>jenkins-example</finalName>
+				</configuration>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
