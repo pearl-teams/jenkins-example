@@ -19,7 +19,8 @@ pipeline {
         }    
        	stage('Dev: Build Image') { 
 		    steps { 
-		       dockerBuild() 
+		    	hello("world")
+		       	dockerBuild() 
        		}
        	}
     }
