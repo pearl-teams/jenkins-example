@@ -25,9 +25,11 @@ pipeline {
        	}
        	stage('Dev: Push Image') { 
 		    steps { 
-		    	docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+		    	script{
+		    	    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             		app.push("latest")
-        		}
+        			}
+		    	}
        		}
        	}
     }
